@@ -31,6 +31,19 @@ public class TodoService {
         return TodoResponseDto.of(findTodo);
     }
 
+    public TodoResponseDtoList findTodoList() {
+        return TodoResponseDtoList.of(todoRepository.findAll());
+    }
+
+    public TodoResponseDto updateTodo(TodoPatchDto todoPatchDto) {
+        Todo updatetodo = todoRepository.findById(todoPatchDto.getId()).orElseThrow(IllegalArgumentException::new);
+
+        updatetodo.update(todoPatchDto);
+
+        return TodoResponseDto.of(updatetodo);
+    }
+
+
     public void deleteAllTodo() {
         todoRepository.deleteAll();
     }
@@ -40,15 +53,5 @@ public class TodoService {
         todoRepository.deleteById(id);
     }
 
-    public TodoResponseDtoList findTodoList() {
-        return TodoResponseDtoList.of(todoRepository.findAll());
-    }
 
-    public TodoResponseDto updateTodo(TodoPatchDto todoPatchDto) {
-       Todo updatetodo = todoRepository.findById(todoPatchDto.getId()).orElseThrow(IllegalArgumentException::new);
-
-       updatetodo.update(todoPatchDto);
-
-       return TodoResponseDto.of(updatetodo);
-    }
 }

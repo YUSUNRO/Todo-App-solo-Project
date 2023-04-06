@@ -1,6 +1,7 @@
 package com.todo.todoApp.dto;
 
 import com.todo.todoApp.entity.Todo;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TodoResponseDtoList {
     private List<TodoResponseDto> todoResponseDtoList;
 

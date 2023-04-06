@@ -2,6 +2,7 @@ package com.todo.todoApp.dto;
 
 
 import com.todo.todoApp.entity.Todo;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TodoResponseDto {
 
     private Long Id;

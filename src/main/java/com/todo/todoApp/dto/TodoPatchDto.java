@@ -15,5 +15,4 @@ public class TodoPatchDto {
 
     private boolean completed;
 
-
 }

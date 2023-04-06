@@ -2,6 +2,7 @@ package com.todo.todoApp.entity;
 
 import com.todo.todoApp.dto.TodoPatchDto;
 import com.todo.todoApp.dto.TodoPostDto;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Setter
 public class Todo {
@@ -28,6 +29,11 @@ public class Todo {
 
     @Column(nullable = false)
     private boolean completed;
+
+
+//    //생성자 막기위해
+//    private Todo() {
+//    }
 
     public static Todo of(TodoPostDto todoPostDto) {
         Todo todo = new Todo();
